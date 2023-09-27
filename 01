@@ -1,0 +1,211 @@
+class Cliente {
+    private int ID;
+    private String nome;
+    private String email;
+    private String senha;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+}
+
+class Motorista {
+    private int ID;
+    private String nome;
+    private double avaliacao;
+    private Veiculo veiculo;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+}
+
+class Veiculo {
+    private String placa;
+    private String modelo;
+    private String cor;
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+}
+
+class Viagem {
+    private int ID;
+    private String pontoPartida;
+    private String pontoDestino;
+    private String dataHora;
+    private double tarifa;
+    private String status;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setPontoPartida(String pontoPartida) {
+        this.pontoPartida = pontoPartida;
+    }
+
+    public String getPontoPartida() {
+        return pontoPartida;
+    }
+
+    public void setPontoDestino(String pontoDestino) {
+        this.pontoDestino = pontoDestino;
+    }
+
+    public String getPontoDestino() {
+        return pontoDestino;
+    }
+
+    public void setDataHora(String dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public String getDataHora() {
+        return dataHora;
+    }
+
+    public void setTarifa(double tarifa) {
+        this.tarifa = tarifa;
+    }
+
+    public double getTarifa() {
+        return tarifa;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+}
+
+class Pagamento {
+    private int ID;
+    private String metodo;
+    private double valor;
+    private String status;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setMetodo(String metodo) {
+        this.metodo = metodo;
+    }
+
+    public String getMetodo() {
+        return metodo;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cliente cliente1 = new Cliente();
+        cliente1.setNome("João");
+        cliente1.setEmail("joao@email.com");
+        cliente1.setSenha("senha123");
+
+        Motorista motorista1 = new Motorista();
+        motorista1.setNome("Maria");
+        motorista1.setAvaliacao(4.8);
+
+        Veiculo veiculo1 = new Veiculo();
+        veiculo1.setPlaca("ABC123");
+        veiculo1.setModelo("Sedan");
+        veiculo1.setCor("Preto");
+
+        motorista1.setVeiculo(veiculo1);
+
+        Viagem viagem1 = new Viagem();
+        viagem1.setPontoPartida("Rua A, 123");
+        viagem1.setPontoDestino("Rua B, 456");
+        viagem1.setTarifa(25.00);
+        viagem1.setStatus("EM ANDAMENTO");
+
+        Pagamento pagamento1 = new Pagamento();
+        pagamento1.setMetodo("Cartão de Crédito");
+        pagamento1.setValor(25.00);
+        pagamento1.setStatus("CONCLUIDO");
+
+        viagem1.setStatus("CONCLUIDA");
+
+        System.out.println("Viagem de " + cliente1.getNome() + " de " + viagem1.getPontoPartida() + " para " + viagem1.getPontoDestino() + " foi concluída.");
+        System.out.println("Pagamento de " + cliente1.getNome() + " de " + pagamento1.getValor() + " via " + pagamento1.getMetodo() + " foi " + pagamento1.getStatus());
+    }
+}
